@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { User, generateUniqueUserName } from "./user.model";
 import { Ecommerce } from "../Ecommerce/ecomerce_model";
+import {Category} from "../Category/Category_model";
 import { SECRETS } from "../../util/config";
 const { Types } = mongoose;
 
@@ -629,19 +630,22 @@ const getDashboardDetails = async (req, res) => {
     if (!req.user) {
       return res.status(400).json({ message: "User Not Found" });
     }
-    const videos = await Lesson.find({ madeBy: req.user._id });
+   // const videos = await Lesson.find({ madeBy: req.user._id });
     const products = await Ecommerce.find({ userID: req.user._id });
-    const subscribers = await Subscription.find({
-      instructor: req.user._id,
-    });
-    const tvshows = await Tvshow.find({ user: req.user._id });
+    const category = await Category.find({});
+
+    // const subscribers = await Subscription.find({
+    //   instructor: req.user._id,
+    // });
+    // const tvshows = await Tvshow.find({ user: req.user._id });
     res.json({
       status: "OK",
       data: {
-        videosCount: videos.length,
-        tvshowsCount: tvshows.length,
+       // videosCount: videos.length,
+        //tvshowsCount: tvshows.length,
         productsCount: products.length,
-        subscriberCount: subscribers.length,
+        categoryCount : category.length
+        //subscriberCount: subscribers.length,
       },
     });
   } catch (e) {
