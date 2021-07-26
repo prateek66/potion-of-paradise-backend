@@ -4,7 +4,7 @@ import AWS from "aws-sdk";
 import md5 from "md5";
 import { SECRETS } from "./config";
 
-const spacesEndpoint = new AWS.Endpoint(SECRETS.spacesEndpoint);
+const spacesEndpoint = AWS.Endpoint(SECRETS.spacesEndpoint);
 const s3 = new AWS.S3({
   endpoint: spacesEndpoint,
   accessKeyId: SECRETS.spacesAcessKey,

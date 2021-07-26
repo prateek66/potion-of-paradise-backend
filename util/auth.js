@@ -18,7 +18,6 @@ const signup = async (req, res) => {
     return res.status(201).send({ status: "ok", token: token });
   } catch (e) {
     console.log(e.message);
-    console.log();
     if (e.toString().includes("E11000 duplicate key error collection")) {
       return res.status(400).send({
         status: `${

@@ -44,7 +44,7 @@ const addProduct = async (req, res) => {
     const product = await Ecommerce.create(updateObject);
     res.json({ status: "OK", data: product });
   } catch (e) {
-    console.log(e);
+    console.log(e.message);
     res.status(500).json({ message: "Error Creating Product" });
   }
 };
