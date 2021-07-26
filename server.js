@@ -5,14 +5,14 @@ import { config } from "dotenv";
 import cors from "cors";
 import expressListRoutes from "express-list-routes";
 // modules
-import { signup, signin, protect } from "./util/auth";
+import { signup, signin, protect } from "./util/auth.js";
 import { User } from "./resources/user/user.model";
 import UserRouter from "./resources/user/user.router";
 import CategoryRouter from "./resources/Category/Category_routes";
 import ProductRouter from "./resources/Ecommerce/ecommerce.router";
-import { connect } from "./util/db";
-import { SECRETS } from "./util/config";
-import { getUserById } from "./util/grabUserbyId";
+import { connect } from "./util/db.js";
+import { SECRETS } from "./util/config.js";
+import { getUserById } from "./util/grabUserbyId.js";
 import { getProducts,getProductById } from "./resources/Ecommerce/Ecommerce_controller";
 import { view as viewCategories } from "./resources/Category/Category_controller";
 
